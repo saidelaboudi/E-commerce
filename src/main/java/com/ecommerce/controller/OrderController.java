@@ -5,6 +5,8 @@ import com.ecommerce.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/order")
 public class OrderController {
@@ -12,15 +14,22 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping(value = "/newOrder")
-    public void newOrder(@RequestBody Order order){
+    public void newOrder(@RequestBody Order order) {
         orderService.newOrder(order);
     }
+
     @GetMapping(value = "/{id}")
-    public Order getOrder(Long id){
+    public Order getOrder(Long id) {
         return orderService.getOrder(id);
     }
+
     @DeleteMapping(value = "remove/{id}")
-    public void removeOrder(Long id){
+    public void removeOrder(Long id) {
         orderService.removeOrder(id);
+    }
+
+    @GetMapping
+    public List<Order> getAllOrders() {
+        return orderService.getAllOrders();
     }
 }

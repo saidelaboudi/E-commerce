@@ -5,6 +5,8 @@ import com.ecommerce.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/category")
 public class CategoryController {
@@ -22,5 +24,9 @@ public class CategoryController {
     @DeleteMapping(value = "/delCategory/{id}")
     public void removeCategory(Long id){
         categoryService.delete(id);
+    }
+    @GetMapping
+    public List<Category> getAllCategories(){
+        return categoryService.getAllCategories();
     }
 }

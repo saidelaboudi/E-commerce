@@ -5,6 +5,8 @@ import com.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {
@@ -22,5 +24,9 @@ public class ProductController {
     @DeleteMapping(value = "/remove/{id]")
     public void removeProduct(Long id){
         productService.remove(id);
+    }
+    @GetMapping
+    public List<Product> getAllProducts(){
+        return productService.getAllProducts();
     }
 }

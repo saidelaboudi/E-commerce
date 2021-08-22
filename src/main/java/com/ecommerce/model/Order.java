@@ -5,17 +5,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "orders")
 @Data@NoArgsConstructor@AllArgsConstructor
 public class Order {
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     private User user;
-    @OneToMany(targetEntity = User.class)
+    @OneToMany
     private List<OrderItem> itemList;
     private double amount ;
 }

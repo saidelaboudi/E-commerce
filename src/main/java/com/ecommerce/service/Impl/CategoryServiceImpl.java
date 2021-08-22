@@ -6,6 +6,8 @@ import com.ecommerce.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
@@ -25,5 +27,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Category getCategory(Long id) {
         return categoryRepository.findById(id).get();
+    }
+
+    @Override
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
     }
 }

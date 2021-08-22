@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table
 @Data@NoArgsConstructor@AllArgsConstructor
 public class OrderItem {
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     private Product product;
