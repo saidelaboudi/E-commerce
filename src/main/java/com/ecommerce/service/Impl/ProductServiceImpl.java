@@ -1,7 +1,10 @@
 package com.ecommerce.service.Impl;
 
+import com.ecommerce.model.Category;
 import com.ecommerce.model.Product;
+import com.ecommerce.repository.CategoryRepository;
 import com.ecommerce.repository.ProductRepository;
+import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +15,8 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private CategoryService categoryService;
     @Override
     public Product getProduct(Long id) {
         return productRepository.findById(id).get();
@@ -32,5 +37,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public List<Product> getProductsByCatedory(Long id) {
+        Category category = categoryService.getCategory(id);
+        return productRepository.findProductsByCategory(category);
     }
 }

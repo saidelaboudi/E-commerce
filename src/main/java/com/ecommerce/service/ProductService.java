@@ -12,4 +12,6 @@ public interface ProductService {
     public void remove(Long id);
 
     public List<Product> getAllProducts();
+
+    public List<Product> getProductsByCatedory(Long id);
 }
