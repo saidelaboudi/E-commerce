@@ -17,4 +17,6 @@ public class Product {
     @OneToOne
     private Category category;
     private double price;
+    private boolean newArrival;
+    private boolean bestSelling;
 }

@@ -1,6 +1,7 @@
 package com.ecommerce.controller;
 
 import com.ecommerce.model.Category;
+import com.ecommerce.model.Product;
 import com.ecommerce.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/category")
+@CrossOrigin
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
@@ -28,5 +30,9 @@ public class CategoryController {
     @GetMapping
     public List<Category> getAllCategories(){
         return categoryService.getAllCategories();
+    }
+    @GetMapping("/{id}")// Category id
+    public List<Product> getProductsByCategory(@PathVariable Long id){
+        return categoryService.getProductsByCategory(id);
     }
 }
