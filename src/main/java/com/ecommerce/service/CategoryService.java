@@ -15,4 +15,5 @@ public interface CategoryService {
     public List<Category> getAllCategories();
 
     public List<Product> getProductsByCategory(Long id);
+
 }

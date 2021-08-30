@@ -26,7 +26,7 @@ public class ProductController {
     public void removeProduct(Long id){
         productService.remove(id);
     }
-    @GetMapping
+    @GetMapping("/all")
     public List<Product> getAllProducts(){
         return productService.getAllProducts();
     }

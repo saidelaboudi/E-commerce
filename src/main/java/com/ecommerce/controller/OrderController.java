@@ -29,7 +29,7 @@ public class OrderController {
         orderService.removeOrder(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Order> getAllOrders() {
         return orderService.getAllOrders();
     }
