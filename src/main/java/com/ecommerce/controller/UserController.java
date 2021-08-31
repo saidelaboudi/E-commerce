@@ -2,6 +2,7 @@ package com.ecommerce.controller;
 
 import com.ecommerce.model.User;
 import com.ecommerce.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +42,5 @@ public class UserController {
         if (user1.getPassword().equals(user.getPassword())) {
             System.out.println("Hello world !");
         }
-
     }
 }
