@@ -1,22 +1,41 @@
 package com.ecommerce.controller;
 
+import com.ecommerce.model.Image;
 import com.ecommerce.model.Product;
+import com.ecommerce.service.ImageService;
 import com.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/products")
 @CrossOrigin
 public class ProductController {
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ImageService imageService;
 
     @PostMapping(value = "/newProduct")
-    public void newProduct(@RequestBody Product product){
+    public Product newProduct(@RequestBody Product product){
+        return productService.newProduct(product);
+    }
+    @PutMapping(value="/{id}")
+    public void addImageToProduct(@PathVariable Long id , @RequestBody MultipartFile file){
+        Product product = productService.getProduct(id);
+        Image image = Image.buildImage(file);
+        product.setImage(image);
         productService.newProduct(product);
+    }
+    @GetMapping("/{id}/images")
+    public ResponseEntity<byte[]> getImage(@PathVariable Long id) throws Exception {
+        Product product = productService.getProduct(id);
+        Image image = product.getImage();
+        return ResponseEntity.ok().contentType(MediaType.valueOf(image.getFileType())).body(image.getData());
     }
     @GetMapping(value = "/{id}")
     public Product getProduct(Long id){

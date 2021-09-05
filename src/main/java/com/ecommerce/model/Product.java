@@ -8,9 +8,12 @@ import javax.persistence.*;
 
 @Entity
 @Table
-@Data@NoArgsConstructor@AllArgsConstructor
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
     private String name;
@@ -19,4 +22,6 @@ public class Product {
     private double price;
     private boolean newArrival;
     private boolean bestSelling;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Image image;
 }

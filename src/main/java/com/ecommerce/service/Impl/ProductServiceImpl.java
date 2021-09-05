@@ -17,20 +17,21 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
     @Autowired
     private CategoryService categoryService;
+
     @Override
     public Product getProduct(Long id) {
         return productRepository.findById(id).get();
     }
 
     @Override
-    public void newProduct(Product product) {
-        productRepository.save(product);
+    public Product newProduct(Product product) {
+        return productRepository.save(product);
     }
 
     @Override
     public void remove(Long id) {
         Product product = this.getProduct(id);
-        if(product!=null)
+        if (product != null)
             productRepository.delete(product);
     }
 

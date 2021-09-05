@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/contactUs")
+@CrossOrigin
 public class ContactUsController {
     @Autowired
     private ContactUsService contactUsService ;
