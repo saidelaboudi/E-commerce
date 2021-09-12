@@ -35,12 +35,4 @@ public class UserController {
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
-
-    @PostMapping("/login/")
-    public void login(@RequestBody User user) {
-        User user1 = userService.getUserByUsername(user.getUsername());
-        if (user1.getPassword().equals(user.getPassword())) {
-            System.out.println("Hello world !");
-        }
-    }
 }

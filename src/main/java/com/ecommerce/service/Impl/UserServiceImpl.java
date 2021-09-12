@@ -38,13 +38,9 @@ public class UserServiceImpl implements UserService {
     public void editProfile(User user, Long id) {
         User user1 = this.getUser(id);
         user1.setEmail(user.getEmail());
-        user1.setPassword(user.getPassword());
-        user1.setUsername(user.getUsername());
+        user1.setAddress(user.getAddress());
+        user1.setFirstname(user.getFirstname());
+        user1.setLastname(user.getLastname());
         userRepository.save(user1);
-    }
-
-    @Override
-    public User getUserByUsername(String username) {
-        return userRepository.findByUsername(username);
     }
 }

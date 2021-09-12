@@ -10,5 +10,4 @@ public interface UserService {
     public List<User> getAllUsers();
     public void deleteUser(Long id);
     public void editProfile(User user , Long id);
-    public User getUserByUsername(String username);
 }

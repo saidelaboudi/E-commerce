@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 
 @Configuration
+@EnableWebSecurity
 @EnableOAuth2Sso
 public class Config extends WebSecurityConfigurerAdapter {
     @Override
@@ -22,8 +23,8 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/**")
-                .permitAll()
+                .antMatchers("/api/**/**").permitAll()
+                .antMatchers("/**/*swagger*/**", "/v2/api-docs").permitAll()
                 .anyRequest()
                 .authenticated();
     }

@@ -17,11 +17,12 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
-    private String username;
+    private String firstname;
+    private String lastname;
     @Column(unique = true)
     private String email;
-    private String password;
+    private String address;
+    private String phonenumber;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.ORDINAL)

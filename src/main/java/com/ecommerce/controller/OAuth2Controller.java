@@ -7,7 +7,7 @@ import java.security.Principal;
 @RestController
 @CrossOrigin
 public class OAuth2Controller {
-    @RequestMapping("user")
+    @RequestMapping("/user")
     @ResponseBody
     public Principal getUser(Principal principal){
         return principal;
