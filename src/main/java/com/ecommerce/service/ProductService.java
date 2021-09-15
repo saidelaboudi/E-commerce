@@ -14,4 +14,6 @@ public interface ProductService {
     public List<Product> getAllProducts();
 
     public List<Product> getProductsByCatedory(Long id);
+
+    public void setBestSelling(Long id , boolean isBestSelling);
 }

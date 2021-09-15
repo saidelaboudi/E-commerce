@@ -53,4 +53,12 @@ public class ProductController {
     public List<Product> getProductsByCatedory(@PathVariable Long id){
         return productService.getProductsByCatedory(id);
     }
+    @PutMapping("/update")
+    public void updateProduct(@RequestBody Product product){
+        productService.newProduct(product);
+    }
+    @PutMapping("/{id}/setBestSelling")
+    public void setBestSelling(@PathVariable Long id , boolean isBestSelling){
+        productService.setBestSelling(id , isBestSelling);
+    }
 }

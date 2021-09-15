@@ -45,4 +45,11 @@ public class ProductServiceImpl implements ProductService {
         Category category = categoryService.getCategory(id);
         return productRepository.findProductsByCategory(category);
     }
+
+    @Override
+    public void setBestSelling(Long id, boolean isBestSelling) {
+        Product product = productRepository.getById(id);
+        product.setBestSelling(isBestSelling);
+        productRepository.save(product);
+    }
 }

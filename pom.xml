@@ -103,6 +103,11 @@
 			<artifactId>spring-security-oauth2</artifactId>
 			<version>2.3.4.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>com.stripe</groupId>
+			<artifactId>stripe-java</artifactId>
+			<version>20.75.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
