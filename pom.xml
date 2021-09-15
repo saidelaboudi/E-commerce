@@ -108,6 +108,11 @@
 			<artifactId>stripe-java</artifactId>
 			<version>20.75.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure-webapp-maven-plugin</artifactId>
+			<version>1.7.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
