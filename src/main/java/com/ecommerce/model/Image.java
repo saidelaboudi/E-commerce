@@ -30,10 +30,6 @@ public class Image {
     private Long id;
     private String fileName;
     private String fileType;
-    private long size;
-    private String uuid;
-    private String systemName;
-
     @Lob
     @Type(type = "org.hibernate.type.BinaryType")
     private byte[] data;
@@ -43,16 +39,12 @@ public class Image {
         String uuid = UUID.randomUUID().toString();
         Image image = new Image();
         Date now = new Date();
-        image.setUuid(uuid);
-        image.setSystemName("default");
         return image;
     }
 
     @Transient
     public void setFiles(MultipartFile file) {
         setFileType(file.getContentType());
-        setSize(file.getSize());
-        setSize(file.getSize());
     }
 
     @Transient
@@ -90,7 +82,7 @@ public class Image {
         InputStream is = getResourceFileAsInputStream("notfound.jpg");
         String fileType = "image/jpeg";
         byte[] bdata = FileCopyUtils.copyToByteArray(is);
-        Image image = new Image(0L,null, fileType, 0, null, null, bdata);
+        Image image = new Image(0L,null,fileType,   bdata);
         return image;
     }
 
